@@ -41,3 +41,23 @@ vmc-quantum-lab/
 ├── assets/                  # Images and plots
 ├── utils/                   # Shared utility functions
 └── README.md
+
+
+
+# Phase 2: Helium Atom Ground State with VMC
+
+## Introduction
+เราจะคำนวณพลังงาน Ground State ของอะตอมฮีเลียม ($He$) ซึ่งเป็นปัญหาร่างกายหลายอนุภาค (Many-body problem) ที่ง่ายที่สุด
+เป้าหมายคือการแสดงให้เห็นว่า **Jastrow Factor** ช่วยจับพฤติกรรม Electron Correlation ได้อย่างไร
+
+### The Hamiltonian
+$$\hat{H} = -\frac{1}{2}\nabla_1^2 -\frac{1}{2}\nabla_2^2 - \frac{2}{r_1} - \frac{2}{r_2} + \frac{1}{r_{12}}$$
+
+### The Trial Wavefunction
+$$\Psi_T(\mathbf{r}_1, \mathbf{r}_2) = e^{-2r_1} e^{-2r_2} \exp\left( \frac{r_{12}}{2(1 + \alpha r_{12})} \right)$$
+เราจะแปรผันค่า $\alpha$ (Variational Parameter) เพื่อหาพลังงานต่ำสุด
+
+**Benchmarks:**
+* Experimental Value: **-2.9037 Hartree**
+* Hartree-Fock Limit (No correlation): **-2.8617 Hartree**
+* เป้าหมายของเรา: ต้องได้ค่าต่ำกว่า -2.8617 (More negative is better)
